@@ -56,7 +56,7 @@ const CONFIG = {
 
   // ── 우리의 이야기 ──
   story: {
-    title: "우리의 이야기",
+    title: "Story",
     content: "서로 다른 길을 걷던 두 사람이\n하나의 길을 함께 걷게 되었습니다.\n\n여러분을 소중한 자리에 초대합니다."
   },
 
@@ -79,6 +79,6 @@ const CONFIG = {
   // ── 링크 공유 시 나타나는 문구 ──
   meta: {
     title: "Jihun & Dajeong Wedding day",
-    description: "2026.08.29 5:00PM, W웨딩 국민연금홀 3F"
+    description: "2026.08.29 5:00PM, W웨딩 국민연금 3F"
   }
 };
