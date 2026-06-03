@@ -15,6 +15,8 @@
 const CONFIG = {
   // ── 초대장 열기 ──
   useCurtain: true,  // 초대장 열기 화면 사용 여부 (true: 사용, false: 바로 본문 표시)
+	
+	
 
   // ── 메인 (히어로) ──
   groom: {
@@ -56,8 +58,8 @@ const CONFIG = {
 
   // ── 우리의 이야기 ──
   story: {
-    title: "Story",
-    content: "서로 다른 길을 걷던 두 사람이\n하나의 길을 함께 걷게 되었습니다.\n\n여러분을 소중한 자리에 초대합니다."
+    title: "Since 2022",
+    content: "2022년 11월 19일, 시원한 계절에 시작된 우리.\n맛있는 것을 함께 먹고, 좋은 곳을 함께 걸으며\n4년 동안 예쁘게 연애해 온 저희가 드디어 결혼합니다!\n\n이제는 부부라는 이름으로\n더 아끼고 행복하게 살겠습니다."
   },
 
   // ── 오시는 길 ──
@@ -71,14 +73,14 @@ const CONFIG = {
     ],
     bride: [
       { role: "신부", name: "이다정", bank: "신한은행", number: "110-610-517650" },
-      { role: "아버지", name: "이용수", bank: "기업은행", number: "000-000-000000" },
+      { role: "아버지", name: "이용수", bank: "농협은행", number: "000-000-000000" },
       { role: "어머니", name: "김영옥", bank: "농협은행", number: "000-000-000000" }
     ]
   },
 
   // ── 링크 공유 시 나타나는 문구 ──
   meta: {
-    title: "Jihun & Dajeong Wedding day",
-    description: "2026.08.29 5:00PM, W웨딩 국민연금 3F"
+    title: "지훈 & 다정 Wedding day",
+    description: "2026.08.29 5:00PM, W웨딩 국민연금홀 3F"
   }
 };
