@@ -378,8 +378,8 @@
     });
   }
 
-    /* ═══════════════════════════════════════════
-     Photo Modal (with swipe) - 스크롤 튕김 수정 버전
+  /* ═══════════════════════════════════════════
+     Photo Modal (with swipe) - 최종 안정화 버전
      ═══════════════════════════════════════════ */
 
   let modalImages = [];
@@ -388,33 +388,27 @@
   let touchEndX = 0;
   let touchStartY = 0;
   let touchEndY = 0;
-  
-  // [추가] 모달을 열기 전의 스크롤 위치를 저장할 변수
-  let savedScrollY = 0; 
 
   function openPhotoModal(images, index) {
-    // 1. 현재 스크롤 위치를 기억합니다.
-    savedScrollY = window.scrollY || window.pageYOffset; 
-    
     modalImages = images;
     modalIndex = index;
     showModalImage();
     
+    // 1. 모달을 엽니다.
     $('#photoModal').classList.add('is-open');
-    document.body.classList.add('no-scroll');
     
-    // [추가] 모바일에서 body가 튕기는 것을 방지하기 위해 상단 위치를 고정 시도할 수도 있습니다.
-    document.body.style.top = `-${savedScrollY}px`;
+    // 2. 현재 스크롤 위치를 고수한 채로 배경만 잠급니다. (위로 튕기지 않음)
+    document.body.classList.add('no-scroll');
   }
 
   function closePhotoModal() {
+    // 3. 모달을 닫습니다.
     $('#photoModal').classList.remove('is-open');
-    document.body.classList.remove('no-scroll');
     
-    // [추가] 고정했던 스타일을 지우고 원래 스크롤 위치로 강제 이동시킵니다.
-    document.body.style.top = '';
-    window.scrollTo(0, savedScrollY); 
+    // 4. 배경 잠금을 해제합니다. (원래 위치에 그대로 멈춰있음)
+    document.body.classList.remove('no-scroll');
   }
+
 
 
   function showModalImage() {
