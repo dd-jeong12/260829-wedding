@@ -80,10 +80,11 @@ body {
 }
 
 body.no-scroll {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
 }
+
 
 img {
   display: block;
