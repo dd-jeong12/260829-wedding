@@ -485,6 +485,22 @@
     $('#copyAddressBtn').addEventListener('click', () => {
       copyToClipboard(w.address, '주소가 복사되었습니다');
     });
+    
+      // 기존 코드 밑에 아래 내용을 추가하세요
+  const mapButtons = [$('#kakaoMapBtn'), $('#naverMapBtn')];
+  mapButtons.forEach(btn => {
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        // 만약 링크가 '#'이거나 비어있다면 최상단 이동을 막고 안내창을 띄웁니다.
+        if (btn.getAttribute('href') === '#' || !btn.href) {
+          e.preventDefault();
+          showToast('지도가 연결되지 않았습니다.'); // 또는 알림창
+        }
+      });
+    }
+  });
+} // initLocation 끝나는 부분
+
   }
 
   /* ═══════════════════════════════════════════
