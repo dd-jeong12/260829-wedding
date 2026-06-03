@@ -468,8 +468,8 @@
     }
   }
 
-  /* ═══════════════════════════════════════════
-     Location Section
+    /* ═══════════════════════════════════════════
+     Location Section (수정됨)
      ═══════════════════════════════════════════ */
 
   function initLocation() {
@@ -479,28 +479,27 @@
     $('#locationAddress').textContent = w.address;
     $('#locationTel').textContent = w.tel ? `Tel. ${w.tel}` : '';
     $('#locationMapImg').src = 'images/location/1.jpg';
+    
+    // 링크가 없을 경우 '#' 대신 기본 동작을 막기 위해 조건부 처리
     $('#kakaoMapBtn').href = w.mapLinks.kakao || '#';
     $('#naverMapBtn').href = w.mapLinks.naver || '#';
+
+    // [추가된 코드] 지도 링크가 '#'일 때 페이지가 위로 튕기는 버그 방지
+    const mapButtons = [$('#kakaoMapBtn'), $('#naverMapBtn')];
+    mapButtons.forEach(btn => {
+      if (btn) {
+        btn.addEventListener('click', (e) => {
+          if (btn.getAttribute('href') === '#' || !btn.href) {
+            e.preventDefault(); // 최상단으로 이동하는 기본 동작을 막습니다.
+            showToast('지도 링크가 등록되지 않았습니다.');
+          }
+        });
+      }
+    });
 
     $('#copyAddressBtn').addEventListener('click', () => {
       copyToClipboard(w.address, '주소가 복사되었습니다');
     });
-    
-      // 기존 코드 밑에 아래 내용을 추가하세요
-  const mapButtons = [$('#kakaoMapBtn'), $('#naverMapBtn')];
-  mapButtons.forEach(btn => {
-    if (btn) {
-      btn.addEventListener('click', (e) => {
-        // 만약 링크가 '#'이거나 비어있다면 최상단 이동을 막고 안내창을 띄웁니다.
-        if (btn.getAttribute('href') === '#' || !btn.href) {
-          e.preventDefault();
-          showToast('지도가 연결되지 않았습니다.'); // 또는 알림창
-        }
-      });
-    }
-  });
-} // initLocation 끝나는 부분
-
   }
 
   /* ═══════════════════════════════════════════
